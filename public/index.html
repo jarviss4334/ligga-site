@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Development Team</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Prevent Flash -->
+    <script>
+      (function() {
+        const saved = localStorage.getItem("site-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = saved ? saved : (prefersDark ? "dark" : "light");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 </head>
-<body>
+
+<body class="page-fade">
 
     <!-- Navbar -->
     <header class="navbar">
@@ -18,6 +31,8 @@
     <section class="hero">
         <h2 class="title">We Build Websites for Shops & Businesses</h2>
         <p class="subtitle">Textiles, Garages, Salons, Restaurants & More.</p>
+
+        <!-- Single Contact Button -->
         <a href="contact.html" class="contact-btn">Contact Us</a>
     </section>
 
@@ -55,5 +70,43 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Fade-in -->
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+    </script>
+
+    <!-- Fade-out on internal navigation -->
+    <script>
+    document.querySelectorAll("a[href]").forEach(link => {
+      const url = link.getAttribute("href");
+
+      if (!url) return;
+      if (url.startsWith("#")) return;
+      if (url.startsWith("mailto:")) return;
+      if (url.startsWith("tel:")) return;
+      if (link.target === "_blank") return;
+
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        document.body.classList.remove("loaded");
+        setTimeout(() => {
+          window.location.href = url;
+        }, 300);
+      });
+    });
+    </script>
+
+<script>
+window.addEventListener("pageshow", (event) => {
+  // If page is restored from bfcache, force fade-in
+  if (event.persisted) {
+    document.body.classList.add("loaded");
+  }
+});
+</script>
+
 </body>
 </html>
