@@ -178,3 +178,8 @@ footer {
 .page-fade.loaded {
   opacity: 1;
 }
+
+
+.templates {
+    padding: 40px 20px;
+}
