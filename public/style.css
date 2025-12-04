@@ -19,7 +19,7 @@ body {
     --accent: #6b5bff;
 }
 
-body.dark {
+html.dark {
     --bg: #0f0f0f;
     --text: #fff;
     --card: #1a1a1a;
@@ -166,4 +166,15 @@ footer {
 
 .contact-btn2:hover {
     transform: scale(1.05);
+}
+
+/* Page Fade Animation */
+
+.page-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.page-fade.loaded {
+  opacity: 1;
 }
