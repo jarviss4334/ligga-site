@@ -6,16 +6,23 @@ const path = require("path");
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 /* =========================
-   SESSION
+   SESSION (LOCAL + RENDER)
 ========================= */
 app.use(
   session({
     secret: "admin-secret",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax"
+    }
   })
 );
+
 
 /* =========================
    BODY PARSER
