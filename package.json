@@ -1,5 +1,5 @@
 {
-  "name": "zeno-codes",
+  "name": "ligga",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,8 +10,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
   }
 }
