@@ -26,23 +26,29 @@ html.dark {
     --accent: #8f7cff;
 }
 
-/* NAVBAR */
+/* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* centers logo */
+    align-items: center;
     padding: 15px 25px;
-    position: sticky;
-    top: 0;
+    position: relative;
     background: var(--bg);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 700;
+    text-align: center; /* ensures logo text is centered */
 }
-
 .theme-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+
+    /* keep your existing styles */
     background: var(--accent);
     border: none;
     padding: 8px 12px;
@@ -52,7 +58,6 @@ html.dark {
     transition: 0.3s;
     color: white;
 }
-
 /* HERO */
 .hero {
     text-align: center;
@@ -182,4 +187,123 @@ footer {
 
 .templates {
     padding: 40px 20px;
+}
+
+/* ==============================
+   MOBILE RESPONSIVE FIXES
+   ============================== */
+@media (max-width: 768px) {
+
+    /* Hero adjustments */
+    .hero {
+        padding: 80px 15px 40px 15px; /* extra top padding for theme button */
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .hero .title {
+        font-size: 24px;
+    }
+
+    .hero .subtitle {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    /* Stack service cards vertically */
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cards .card {
+        width: 100%;
+        min-width: unset; /* remove horizontal scroll limit */
+    }
+
+    /* Templates section: PC-like layout on mobile */
+    .templates-cards {
+        display: grid; /* like desktop */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-items: start; /* left-align the cards */
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    .templates-cards .card {
+        min-width: auto; 
+        max-width: 400px;
+    }
+
+    /* Left-align the button inside each template card */
+    .templates-cards .card .contact-btn {
+        display: inline-block;
+        text-align: left;
+        margin-top: 15px;
+        width: auto;
+    }
+
+    /* Buttons full width (with max-width) */
+    .contact-btn {
+        width: 90%;
+        max-width: 300px;
+        text-align: center;
+        margin: 15px auto 0 auto;
+        display: block;
+    }
+
+    /* Section titles smaller */
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* Navbar adjustments */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    /* Theme toggle fixed top-right */
+    .theme-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 10;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .hero {
+        padding: 90px 10px 30px 10px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .cards .card {
+        width: 100%;
+    }
+
+    .templates-cards .card {
+        width: 100%;
+    }
+
+    .contact-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Ensure body doesn't shrink content on very small screens */
+body {
+    min-width: 320px;
 }
