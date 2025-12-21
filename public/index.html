@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Development Team</title>
     <link rel="stylesheet" href="style.css">
 
@@ -82,16 +82,17 @@
         <div class="card">
             <h3>BEAUTY PARLOUR</h3>
             <p>Elegant beauty parlour template with service list, price chart & booking options.</p>
-            <a href="/beautyparlour" class="contact-btn">View Template</a>
+            <a href="beauty.html" class="contact-btn">View Template</a>
         </div>
-		<!-- TEMPLATE 3 (GARAGE) -->
-		<div class="card">
-  			  <h3>GARAGE</h3>
-   			  <p> Professional garage template with service details, vehicle repair info,
-               contact section & working hours.
-    		  </p>
-   			  <a href="/garage" class="contact-btn">View Template</a>
-			  </div>
+	<!-- TEMPLATE 3 (GARAGE) -->
+<div class="card">
+    <h3>GARAGE</h3>
+    <p>
+        Professional garage template with service details, vehicle repair info,
+        contact section & working hours.
+    </p>
+    <a href="/garage" class="contact-btn">View Template</a>
+</div>
 
 
     </div>
@@ -117,7 +118,7 @@
 
     <!-- Fade-out on internal navigation -->
     <script>
-    document.querySelectorAll("a[href]").forEach(link => {
+    document.querySelectorAll("a[href]").forEach(link => 
       const url = link.getAttribute("href");
 
       if (!url) return;
@@ -147,5 +148,3 @@ window.addEventListener("pageshow", (event) => {
 
 </body>
 </html>
-
-
